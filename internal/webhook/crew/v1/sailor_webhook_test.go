@@ -20,24 +20,24 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	crewv1 "sigs.k8s.io/kubebuilder/testdata/project-v4/api/v1"
+	crewv1 "sigs.k8s.io/kubebuilder/testdata/project-v4/api/crew/v1"
 	// TODO (user): Add any additional imports if needed
 )
 
-var _ = Describe("Captain Webhook", func() {
+var _ = Describe("Sailor Webhook", func() {
 	var (
-		obj       *crewv1.Captain
-		oldObj    *crewv1.Captain
-		validator CaptainCustomValidator
-		defaulter CaptainCustomDefaulter
+		obj       *crewv1.Sailor
+		oldObj    *crewv1.Sailor
+		validator SailorCustomValidator
+		defaulter SailorCustomDefaulter
 	)
 
 	BeforeEach(func() {
-		obj = &crewv1.Captain{}
-		oldObj = &crewv1.Captain{}
-		validator = CaptainCustomValidator{}
+		obj = &crewv1.Sailor{}
+		oldObj = &crewv1.Sailor{}
+		validator = SailorCustomValidator{}
 		Expect(validator).NotTo(BeNil(), "Expected validator to be initialized")
-		defaulter = CaptainCustomDefaulter{}
+		defaulter = SailorCustomDefaulter{}
 		Expect(defaulter).NotTo(BeNil(), "Expected defaulter to be initialized")
 		Expect(oldObj).NotTo(BeNil(), "Expected oldObj to be initialized")
 		Expect(obj).NotTo(BeNil(), "Expected obj to be initialized")
@@ -48,7 +48,7 @@ var _ = Describe("Captain Webhook", func() {
 		// TODO (user): Add any teardown logic common to all tests
 	})
 
-	Context("When creating Captain under Defaulting Webhook", func() {
+	Context("When creating Sailor under Defaulting Webhook", func() {
 		// TODO (user): Add logic for defaulting webhooks
 		// Example:
 		// It("Should apply defaults when a required field is empty", func() {
@@ -61,7 +61,7 @@ var _ = Describe("Captain Webhook", func() {
 		// })
 	})
 
-	Context("When creating or updating Captain under Validating Webhook", func() {
+	Context("When creating or updating Sailor under Validating Webhook", func() {
 		// TODO (user): Add logic for validating webhooks
 		// Example:
 		// It("Should deny creation if a required field is missing", func() {

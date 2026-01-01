@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package controller
+package crew
 
 import (
 	"context"
@@ -27,10 +27,10 @@ import (
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	crewv1 "sigs.k8s.io/kubebuilder/testdata/project-v4/api/v1"
+	crewv1 "sigs.k8s.io/kubebuilder/testdata/project-v4/api/crew/v1"
 )
 
-var _ = Describe("FirstMate Controller", func() {
+var _ = Describe("Admiral Controller", func() {
 	Context("When reconciling a resource", func() {
 		const resourceName = "test-resource"
 
@@ -40,13 +40,13 @@ var _ = Describe("FirstMate Controller", func() {
 			Name:      resourceName,
 			Namespace: "default", // TODO(user):Modify as needed
 		}
-		firstmate := &crewv1.FirstMate{}
+		admiral := &crewv1.Admiral{}
 
 		BeforeEach(func() {
-			By("creating the custom resource for the Kind FirstMate")
-			err := k8sClient.Get(ctx, typeNamespacedName, firstmate)
+			By("creating the custom resource for the Kind Admiral")
+			err := k8sClient.Get(ctx, typeNamespacedName, admiral)
 			if err != nil && errors.IsNotFound(err) {
-				resource := &crewv1.FirstMate{
+				resource := &crewv1.Admiral{
 					ObjectMeta: metav1.ObjectMeta{
 						Name:      resourceName,
 						Namespace: "default",
@@ -59,16 +59,16 @@ var _ = Describe("FirstMate Controller", func() {
 
 		AfterEach(func() {
 			// TODO(user): Cleanup logic after each test, like removing the resource instance.
-			resource := &crewv1.FirstMate{}
+			resource := &crewv1.Admiral{}
 			err := k8sClient.Get(ctx, typeNamespacedName, resource)
 			Expect(err).NotTo(HaveOccurred())
 
-			By("Cleanup the specific resource instance FirstMate")
+			By("Cleanup the specific resource instance Admiral")
 			Expect(k8sClient.Delete(ctx, resource)).To(Succeed())
 		})
 		It("should successfully reconcile the resource", func() {
 			By("Reconciling the created resource")
-			controllerReconciler := &FirstMateReconciler{
+			controllerReconciler := &AdmiralReconciler{
 				Client: k8sClient,
 				Scheme: k8sClient.Scheme(),
 			}
