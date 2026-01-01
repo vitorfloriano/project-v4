@@ -20,7 +20,7 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	crewv1 "sigs.k8s.io/kubebuilder/testdata/project-v4/api/v1"
+	crewv1 "sigs.k8s.io/kubebuilder/testdata/project-v4/api/crew/v1"
 	// TODO (user): Add any additional imports if needed
 )
 

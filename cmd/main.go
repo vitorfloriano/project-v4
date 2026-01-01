@@ -37,10 +37,10 @@ import (
 
 	certmanagerv1 "github.com/cert-manager/cert-manager/pkg/apis/certmanager/v1"
 
-	crewv1 "sigs.k8s.io/kubebuilder/testdata/project-v4/api/v1"
-	crewv2 "sigs.k8s.io/kubebuilder/testdata/project-v4/api/v2"
-	"sigs.k8s.io/kubebuilder/testdata/project-v4/internal/controller"
-	webhookv1 "sigs.k8s.io/kubebuilder/testdata/project-v4/internal/webhook/v1"
+	crewv1 "sigs.k8s.io/kubebuilder/testdata/project-v4/api/crew/v1"
+	crewv2 "sigs.k8s.io/kubebuilder/testdata/project-v4/api/crew/v2"
+	"sigs.k8s.io/kubebuilder/testdata/project-v4/internal/controller/crew"
+	webhookv1 "sigs.k8s.io/kubebuilder/testdata/project-v4/internal/webhook/crew/v1"
 	// +kubebuilder:scaffold:imports
 )
 
@@ -184,7 +184,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err := (&controller.CaptainReconciler{
+	if err := (&crew.CaptainReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
@@ -198,7 +198,7 @@ func main() {
 			os.Exit(1)
 		}
 	}
-	if err := (&controller.FirstMateReconciler{
+	if err := (&crew.FirstMateReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
@@ -212,7 +212,7 @@ func main() {
 			os.Exit(1)
 		}
 	}
-	if err := (&controller.SailorReconciler{
+	if err := (&crew.SailorReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
@@ -226,7 +226,7 @@ func main() {
 			os.Exit(1)
 		}
 	}
-	if err := (&controller.AdmiralReconciler{
+	if err := (&crew.AdmiralReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
@@ -240,7 +240,7 @@ func main() {
 			os.Exit(1)
 		}
 	}
-	if err := (&controller.CertificateReconciler{
+	if err := (&crew.CertificateReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {

@@ -14,23 +14,19 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package v1
+package crew
 
 import (
-	ctrl "sigs.k8s.io/controller-runtime"
-	logf "sigs.k8s.io/controller-runtime/pkg/log"
-
-	crewv1 "sigs.k8s.io/kubebuilder/testdata/project-v4/api/v1"
+	. "github.com/onsi/ginkgo/v2"
 )
 
-// nolint:unused
-// log is for logging in this package.
-var firstmatelog = logf.Log.WithName("firstmate-resource")
+var _ = Describe("Certificate Controller", func() {
+	Context("When reconciling a resource", func() {
 
-// SetupFirstMateWebhookWithManager registers the webhook for FirstMate in the manager.
-func SetupFirstMateWebhookWithManager(mgr ctrl.Manager) error {
-	return ctrl.NewWebhookManagedBy(mgr).For(&crewv1.FirstMate{}).
-		Complete()
-}
+		It("should successfully reconcile the resource", func() {
 
-// TODO(user): EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
+			// TODO(user): Add more specific assertions depending on your controller's reconciliation logic.
+			// Example: If you expect a certain status condition after reconciliation, verify it here.
+		})
+	})
+})
