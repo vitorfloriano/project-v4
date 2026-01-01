@@ -24,29 +24,29 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	logf "sigs.k8s.io/controller-runtime/pkg/log"
 
-	crewv1 "sigs.k8s.io/kubebuilder/testdata/project-v4/api/v1"
+	crewv1 "sigs.k8s.io/kubebuilder/testdata/project-v4/api/batch/v1"
 )
 
-// AdmiralReconciler reconciles a Admiral object
-type AdmiralReconciler struct {
+// CaptainReconciler reconciles a Captain object
+type CaptainReconciler struct {
 	client.Client
 	Scheme *runtime.Scheme
 }
 
-// +kubebuilder:rbac:groups=crew.testproject.org,resources=admirales,verbs=get;list;watch;create;update;patch;delete
-// +kubebuilder:rbac:groups=crew.testproject.org,resources=admirales/status,verbs=get;update;patch
-// +kubebuilder:rbac:groups=crew.testproject.org,resources=admirales/finalizers,verbs=update
+// +kubebuilder:rbac:groups=crew.testproject.org,resources=captains,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=crew.testproject.org,resources=captains/status,verbs=get;update;patch
+// +kubebuilder:rbac:groups=crew.testproject.org,resources=captains/finalizers,verbs=update
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
 // TODO(user): Modify the Reconcile function to compare the state specified by
-// the Admiral object against the actual cluster state, and then
+// the Captain object against the actual cluster state, and then
 // perform operations to make the cluster state reflect the state specified by
 // the user.
 //
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.22.4/pkg/reconcile
-func (r *AdmiralReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
+func (r *CaptainReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
 	_ = logf.FromContext(ctx)
 
 	// TODO(user): your logic here
@@ -55,9 +55,9 @@ func (r *AdmiralReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ct
 }
 
 // SetupWithManager sets up the controller with the Manager.
-func (r *AdmiralReconciler) SetupWithManager(mgr ctrl.Manager) error {
+func (r *CaptainReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
-		For(&crewv1.Admiral{}).
-		Named("admiral").
+		For(&crewv1.Captain{}).
+		Named("captain").
 		Complete(r)
 }

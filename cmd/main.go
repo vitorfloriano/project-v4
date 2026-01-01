@@ -37,10 +37,10 @@ import (
 
 	certmanagerv1 "github.com/cert-manager/cert-manager/pkg/apis/certmanager/v1"
 
-	crewv1 "sigs.k8s.io/kubebuilder/testdata/project-v4/api/v1"
-	crewv2 "sigs.k8s.io/kubebuilder/testdata/project-v4/api/v2"
-	"sigs.k8s.io/kubebuilder/testdata/project-v4/internal/controller"
-	webhookv1 "sigs.k8s.io/kubebuilder/testdata/project-v4/internal/webhook/v1"
+	crewv1 "sigs.k8s.io/kubebuilder/testdata/project-v4/api/batch/v1"
+	crewv2 "sigs.k8s.io/kubebuilder/testdata/project-v4/api/batch/v2"
+	"sigs.k8s.io/kubebuilder/testdata/project-v4/internal/controller/batch"
+	webhookv1 "sigs.k8s.io/kubebuilder/testdata/project-v4/internal/webhook/batch/v1"
 	// +kubebuilder:scaffold:imports
 )
 

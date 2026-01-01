@@ -6,6 +6,7 @@ cliVersion: (devel)
 domain: testproject.org
 layout:
 - go.kubebuilder.io/v4
+multigroup: true
 projectName: project-v4
 repo: sigs.k8s.io/kubebuilder/testdata/project-v4
 resources:
@@ -16,7 +17,7 @@ resources:
   domain: testproject.org
   group: crew
   kind: Captain
-  path: sigs.k8s.io/kubebuilder/testdata/project-v4/api/v1
+  path: sigs.k8s.io/kubebuilder/testdata/project-v4/api/batch/v1
   version: v1
   webhooks:
     defaulting: true
@@ -29,7 +30,7 @@ resources:
   domain: testproject.org
   group: crew
   kind: FirstMate
-  path: sigs.k8s.io/kubebuilder/testdata/project-v4/api/v1
+  path: sigs.k8s.io/kubebuilder/testdata/project-v4/api/batch/v1
   version: v1
   webhooks:
     conversion: true
@@ -42,7 +43,7 @@ resources:
   domain: testproject.org
   group: crew
   kind: FirstMate
-  path: sigs.k8s.io/kubebuilder/testdata/project-v4/api/v2
+  path: sigs.k8s.io/kubebuilder/testdata/project-v4/api/batch/v2
   version: v2
 - api:
     crdVersion: v1
@@ -51,7 +52,7 @@ resources:
   domain: testproject.org
   group: crew
   kind: Sailor
-  path: sigs.k8s.io/kubebuilder/testdata/project-v4/api/v1
+  path: sigs.k8s.io/kubebuilder/testdata/project-v4/api/batch/v1
   version: v1
   webhooks:
     defaulting: true
@@ -65,7 +66,7 @@ resources:
   domain: testproject.org
   group: crew
   kind: Admiral
-  path: sigs.k8s.io/kubebuilder/testdata/project-v4/api/v1
+  path: sigs.k8s.io/kubebuilder/testdata/project-v4/api/batch/v1
   plural: admirales
   version: v1
   webhooks:
